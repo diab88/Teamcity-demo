@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
@@ -77,6 +78,11 @@ object TeamcityDemo_Build : BuildType({
             name = "start the app"
             id = "nodejs_runner_1"
             shellScript = "node app.js"
+        }
+        script {
+            name = "npm test"
+            id = "npm_test"
+            scriptContent = "npm test"
         }
     }
 
