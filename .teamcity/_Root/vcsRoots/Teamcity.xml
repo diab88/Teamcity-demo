@@ -6,7 +6,7 @@
   <param name="authMethod" value="PASSWORD" />
   <param name="branch" value="main" />
   <param name="ignoreKnownHosts" value="true" />
-  <param name="secure:password" value="credentialsJSON:0ac597a3-4334-497c-8606-07f09665b2ae" />
+  <param name="secure:password" value="credentialsJSON:e134aed9-18f0-46a1-9e4e-92920488b1c0" />
   <param name="submoduleCheckout" value="CHECKOUT" />
   <param name="url" value="https://github.com/diab88/Teamcity-demo" />
   <param name="useAlternates" value="AUTO" />
