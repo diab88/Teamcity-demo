@@ -69,6 +69,7 @@ object TeamcityDemo_Build : BuildType({
 
     steps {
         nodeJS {
+            name = "Npm Install"
             id = "nodejs_runner"
             shellScript = "npm install"
         }
