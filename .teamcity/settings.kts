@@ -74,7 +74,7 @@ object TeamcityDemo_Build : BuildType({
             id = "nodejs_runner"
             shellScript = "npm install"
         }
-        script {
+        nodeJS {
             name = "npm test"
             id = "npm_test"
             scriptContent = "npm test"
