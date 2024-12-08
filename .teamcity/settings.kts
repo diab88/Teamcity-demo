@@ -80,7 +80,7 @@ object TeamcityDemo_Build : BuildType({
             scriptContent = "npm test"
         }
         nodeJS {
-            name = "start the app"
+            name = "start the nodjs app"
             id = "nodejs_runner_1"
             shellScript = "node app.js"
         }
