@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
 import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
@@ -64,6 +65,17 @@ object TeamcityDemo_Build : BuildType({
 
     vcs {
         root(TeamcityDemo_HttpsGithubComDiab88TeamcityDemoRefsHeadsMain)
+    }
+
+    steps {
+        nodeJS {
+            id = "nodejs_runner"
+            shellScript = "npm install"
+        }
+        nodeJS {
+            id = "nodejs_runner_1"
+            shellScript = "npm run test"
+        }
     }
 
     triggers {
