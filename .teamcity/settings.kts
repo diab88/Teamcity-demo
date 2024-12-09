@@ -1,10 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
-import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.projectFeatures.buildReportTab
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
-import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -28,7 +23,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 'Debug' option is available in the context menu for the task.
 */
 
-version = "2024.03"
+version = "2024.12"
 
 project {
     description = "Contains all other projects"
@@ -48,62 +43,4 @@ project {
             preventDependencyCleanup = false
         }
     }
-
-    subProject(TeamcityDemo)
 }
-
-
-object TeamcityDemo : Project({
-    name = "Teamcity Demo"
-
-    vcsRoot(TeamcityDemo_HttpsGithubComDiab88TeamcityDemoRefsHeadsMain)
-
-    buildType(TeamcityDemo_Build)
-})
-
-object TeamcityDemo_Build : BuildType({
-    name = "Build"
-
-    vcs {
-        root(TeamcityDemo_HttpsGithubComDiab88TeamcityDemoRefsHeadsMain)
-    }
-
-    steps {
-        nodeJS {
-            name = "Npm Install"
-            id = "nodejs_runner"
-            shellScript = "npm install"
-        }
-        nodeJS {
-            name = "npm test"
-            id = "npm_test"
-            scriptContent = "npm test"
-        }
-        nodeJS {
-            name = "start the nodjs app"
-            id = "nodejs_runner_1"
-            shellScript = "node app.js"
-        }
-    }
-
-    triggers {
-        vcs {
-        }
-    }
-
-    features {
-        perfmon {
-        }
-    }
-})
-
-object TeamcityDemo_HttpsGithubComDiab88TeamcityDemoRefsHeadsMain : GitVcsRoot({
-    name = "https://github.com/diab88/Teamcity-demo#refs/heads/main"
-    url = "https://github.com/diab88/Teamcity-demo"
-    branch = "refs/heads/main"
-    branchSpec = "refs/heads/*"
-    authMethod = password {
-        userName = "diab88"
-        password = "credentialsJSON:0ac597a3-4334-497c-8606-07f09665b2ae"
-    }
-})
