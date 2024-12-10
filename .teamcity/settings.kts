@@ -52,6 +52,7 @@ object Build : BuildType({
         script {
             name = "start the app"
             id = "start_the_app"
+            executionMode = BuildStep.ExecutionMode.RUN_ON_FAILURE
             scriptContent = "node app.js"
         }
     }
