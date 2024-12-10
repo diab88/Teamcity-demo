@@ -49,8 +49,7 @@ object Build : BuildType({
             shellScript = "npm run test"
         }
         nodeJS {
-            name = "start the nodjs app"
-            id = "nodejs_runner_1"
+            id = "nodejs_runner_2"
             shellScript = "node app.js"
         }
     }
