@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -47,6 +48,11 @@ object Build : BuildType({
         nodeJS {
             id = "nodejs_runner_1"
             shellScript = "npm run test"
+        }
+        script {
+            name = "start the app"
+            id = "start_the_app"
+            scriptContent = "node app.js"
         }
     }
 
