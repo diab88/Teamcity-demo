@@ -45,6 +45,7 @@ object JsBuild : BuildType({
             shellScript = "npm install"
         }
         nodeJS {
+            name = "start the app"
             id = "nodejs_runner_1"
             shellScript = "node app.js"
         }
