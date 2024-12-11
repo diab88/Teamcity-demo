@@ -1,7 +1,4 @@
 import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
-import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -28,39 +25,4 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2024.12"
 
 project {
-
-    buildType(Build)
 }
-
-object Build : BuildType({
-    name = "Build"
-
-    vcs {
-        root(DslContext.settingsRoot)
-    }
-
-    steps {
-        nodeJS {
-            id = "nodejs_runner"
-            shellScript = "npm install"
-        }
-        nodeJS {
-            id = "nodejs_runner_1"
-            shellScript = "npm run test"
-        }
-        nodeJS {
-            id = "nodejs_runner_1"
-            shellScript = "node app.js"
-        }
-    }
-
-    triggers {
-        vcs {
-        }
-    }
-
-    features {
-        perfmon {
-        }
-    }
-})
