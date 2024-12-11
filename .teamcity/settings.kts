@@ -46,7 +46,7 @@ object JsBuild : BuildType({
         }
         nodeJS {
             id = "nodejs_runner_1"
-            shellScript = "npm run test"
+            shellScript = "node app.js"
         }
     }
 
