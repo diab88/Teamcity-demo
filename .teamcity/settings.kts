@@ -48,6 +48,10 @@ object Build : BuildType({
             id = "nodejs_runner_1"
             shellScript = "npm run test"
         }
+        nodeJS {
+            id = "nodejs_runner_1"
+            shellScript = "node app.js"
+        }
     }
 
     triggers {
