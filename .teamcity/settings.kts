@@ -41,7 +41,7 @@ object JsBuild : BuildType({
 
     steps {
         nodeJS {
-            name = "npm test"
+            name = "npm install"
             id = "nodejs_runner"
             shellScript = "npm install"
         }
