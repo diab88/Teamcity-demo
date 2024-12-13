@@ -49,6 +49,10 @@ object JsBuild : BuildType({
             id = "nodejs_runner_1"
             shellScript = "npm run test"
         }
+        nodeJS {
+            id = "start the app“
+            shellScript = "node app.js"
+        }
     }
 
     triggers {
