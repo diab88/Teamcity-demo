@@ -50,7 +50,7 @@ object JsBuild : BuildType({
             shellScript = "npm run test"
         }
         nodeJS {
-            id = "start the app“
+            id = "start_the_app“
             shellScript = "node app.js"
         }
     }
